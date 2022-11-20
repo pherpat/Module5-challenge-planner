@@ -2,12 +2,16 @@
 * {
     margin: 0px;
     font-family: 'Nunito', sans-serif; 
-
+  
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+}
+
+div {
+  transition: all 0.25s ease;
 }
 
 textarea {
@@ -69,12 +73,29 @@ textarea {
 .p-5, mb-4 {
   margin: auto;
   text-align: center;
-  margin-top: 30px;
-  margin-bottom: 0px;
+  margin-bottom: 0px !important;
+  
 }
 
 /* ---- max-width fot the block container----*/
 #container {
   max-width: 950px;
-  margin-bottom: 30px;
+  margin-bottom: 70px;
+  position: relative;
+}
+
+#savedevent  {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f4f4f4;
+  border-radius: 15px;
+  position: absolute;
+  width: 100%;
+  top: -50px;
+  left: 0px;
+}
+/*  check mark */
+#savedevent span {
+ color:#77dd77
 }

@@ -1,6 +1,9 @@
 // Main function - jQuery
 $(document).ready(function () {
 
+  // message event saved in local storage - show when click save button
+  $('#savedevent').hide();
+
   // Add current time dayjs format--> day, month day, year
   var currentTime = moment().format("dddd, MMMM Do, YYYY");
   $("#currentDay").text(currentTime);
@@ -107,7 +110,9 @@ $(document).ready(function () {
       var textAreaId = $(this).siblings('textarea').attr('id');
       // console.log(textInput);
       // add to local storage
-      localStorage.setItem(textAreaId, JSON.stringify(textInput));
+    localStorage.setItem(textAreaId, JSON.stringify(textInput));
+    // show message saved event for a few seconds and fade out
+      $('#savedevent').fadeIn(0).delay(1000).fadeOut();
     }
   });
 
