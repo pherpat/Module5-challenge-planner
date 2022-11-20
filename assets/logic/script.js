@@ -25,7 +25,7 @@ $(document).ready(function () {
 
     ];
     // variable for current hour 
-    var currentHour = 11//parseInt(moment().format("H"));
+    var currentHour = parseInt(moment().format("H"));
     console.log(currentHour);
 
     //  for Loop for the array
@@ -101,7 +101,7 @@ $(document).ready(function () {
     function handleSave(event) {
       event.preventDefault();
       console.log("save clicked");
-      
+
       //console.log(parent_id);
       var textInput = $(this).siblings('textarea').val();
       var textAreaId = $(this).siblings('textarea').attr('id');
