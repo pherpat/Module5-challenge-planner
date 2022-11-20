@@ -1,6 +1,6 @@
 ## Third-Party APIs Challenge: Work Day Scheduler
 
-The purpose of this assigment was to rreate a simple calendar application that allows a user to save events for each hour of the day, using HTML, CSS, JavaScript and jQuery.
+The purpose of this assigment was to create a simple calendar application that allows a user to save events for each hour of the day, using HTML, CSS, JavaScript and jQuery.
 
 ## Screenshot
 
