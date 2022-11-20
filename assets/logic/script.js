@@ -1,4 +1,4 @@
-// main function
+// Main function
 $(document).ready(function () {
 
   // Add current time dayjs format--> day, month day, year
@@ -13,15 +13,15 @@ $(document).ready(function () {
 
     //  Created the variable for the time - val = military time
     var timeDataBlocks = [
-      { time: "9AM", val: 09 },
-      { time: "10AM", val: 10 },
-      { time: "11AM", val: 11 },
-      { time: "12AM", val: 12 },
-      { time: "1PM", val: 13 },
-      { time: "2PM", val: 14 },
-      { time: "3PM", val: 15 },
-      { time: "4PM", val: 16 },
-      { time: "5PM", val: 17 }
+      { time: "9 AM", val: 09, id: "hour9amText"},
+      { time: "10 AM", val: 10, id: "hour10amText"},
+      { time: "11 AM", val: 11, id: "hour11amText"},
+      { time: "12 AM", val: 12, id: "hour12amText"},
+      { time: "1 PM", val: 13, id: "hour1pmText"},
+      { time: "2 PM", val: 14, id: "hour2pmText"},
+      { time: "3 PM", val: 15, id: "hour3pmText"},
+      { time: "4 PM", val: 16, id: "hour4pmText"},
+      { time: "5 PM", val: 17, id: "hour5pmText"}
 
     ];
     // variable for current hour 
@@ -44,6 +44,7 @@ $(document).ready(function () {
       hourBlock.addClass("col-2 col-md-1 hour text-center py-3");
       saveBtn.addClass("btn saveBtn col-2 col-md-1");
       textBlock.addClass("col-8 col-md-10 description");
+      textBlock.attr("id", timeDataBlocks[i].id);
       iSave.addClass("fas fa-save");
 
       // adding attribute to our task block
@@ -60,7 +61,7 @@ $(document).ready(function () {
       saveBtn.append(iSave);
 
 }
-
+// Function to change color by hour past, present, future
 function setClass() {
   var colorBlock = $(".time-block");
   for (let i = 0; i < colorBlock.length; i++) {
@@ -76,10 +77,38 @@ function setClass() {
 }
 setClass();
 
+// Loop to pull local storage data and populate the text fields 
+$('.description').each(function(){
+  //if statement here 
+  // use $(this) to reference the current div in the loop
+  var text_id = $(this).attr('id');
+  //console.log(text_id);
+  text_id = JSON.parse(localStorage.getItem(text_id, valueOf));
+  $(this).text(text_id);
+  
+});
+
 }); 
 // -----------Time block Setup end----------
 
 
+
+$(function saveData() {
+  var saveBtn = $(".saveBtn");
+
+saveBtn.on("click", handleSave);
+
+function handleSave(event){
+  event.preventDefault();
+    console.log("save clicked");
+//		var parent_id = $(this).parent().attr('id');
+//			console.log(parent_id);
+  var textInput = $(this).siblings('textarea').val();
+  var textAreaId = $(this).siblings('textarea').attr('id');
+    console.log(textInput);
+  localStorage.setItem(textAreaId, JSON.stringify(textInput));
+  }
+});
 
 });
 
