@@ -5,7 +5,7 @@ $(document).ready(function () {
   $('#savedevent').hide();
 
   // Add current time dayjs format--> day, month day, year
-  var currentTime = moment().format("dddd, MMMM Do, YYYY");
+  var currentTime = dayjs().format("dddd, MMMM D, YYYY");
   $("#currentDay").text(currentTime);
 
   // -----------Time block Setup start ---------
@@ -28,7 +28,7 @@ $(document).ready(function () {
 
     ];
     // variable for current hour 
-    var currentHour = parseInt(moment().format("H"));
+    var currentHour = parseInt(dayjs().format("H"));
     console.log(currentHour);
 
     //  for Loop for the array
